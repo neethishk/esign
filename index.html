@@ -180,22 +180,26 @@
 
 })();
 function myFunction(){
+var canvas = document.getElementById("sig-canvas");
+ 
+var dataUrl = canvas.toDataURL();
   window.parent.postMessage(
         JSON.stringify({
             event_code: "ym-client-event",
-            data: JSON.stringify({
+            data: ({
                 event: {
                     code: "data",
                     data: {
-                        value: "output"
+                        value: dataUrl
                     },
                 },
             }),
         }),
         "*"
     );
-  console.log("neethish")
+ console.log(dataUrl)
 };
+
 
 
     
